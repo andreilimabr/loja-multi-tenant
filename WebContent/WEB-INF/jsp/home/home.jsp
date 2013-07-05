@@ -12,6 +12,8 @@
 <body>
 <script type="text/javascript" src="<c:url value='/resource/js/jquery-1.8.2.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resource/js/bootstrap.min.js'/>"></script>
-
+<c:forEach var="item" items="${imagensList}">
+	<img src="${item.logo}"/>
+</c:forEach>
 </body>
 </html>
