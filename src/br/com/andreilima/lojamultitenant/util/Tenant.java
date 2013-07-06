@@ -1,10 +1,10 @@
 package br.com.andreilima.lojamultitenant.util;
 
 import br.com.caelum.vraptor.ioc.Component;
-import br.com.caelum.vraptor.ioc.SessionScoped;
+import br.com.caelum.vraptor.ioc.RequestScoped;
 
+@RequestScoped
 @Component
-@SessionScoped
 public class Tenant {
 	private String nome;
 
