@@ -5,12 +5,15 @@
 	   					   http://www.springframework.org/schema/beans/spring-beans.xsd">
 <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
     <property name="securityManager" ref="securityManager"/>   
-    <property name="loginUrl" value="/login.jsp"/>
-    <property name="successUrl" value="/loja/home.jsp"/>
-    <property name="unauthorizedUrl" value="/unauthorized.jsp"/> 
+    <property name="loginUrl" value="/admin/login"/>
+    <!-- 
+    <property name="successUrl" value="/home.jsp"/>
+    -->
+    <property name="unauthorizedUrl" value="/admin/unauthorized"/> 
     <property name="filterChainDefinitions">
         <value>
-            /** = authc
+            /admin/unauthorized = anon
+            /admin/** = authc
         </value>
     </property>
 </bean>
@@ -19,4 +22,8 @@
 </bean>
 <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
 <bean id="MyRealm" class="br.com.andreilima.lojamultitenant.security.MyRealm"/>
+<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor"/>
+<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+    <property name="securityManager" ref="securityManager"/>
+</bean>
 </beans>	   					   
