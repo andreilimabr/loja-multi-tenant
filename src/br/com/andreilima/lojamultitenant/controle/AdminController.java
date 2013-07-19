@@ -29,7 +29,7 @@ public class AdminController {
 	@Path("/admin/logout")
 	public void logout(){
 		SecurityUtils.getSubject().logout();
-		this.result.nothing();
+		this.result.forwardTo(HomeController.class).home();
 		
 	}
 	
