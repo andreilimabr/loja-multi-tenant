@@ -41,6 +41,13 @@ public class DAO<T> {
 		return (T)query.getSingleResult();
 	}
 	
+	@SuppressWarnings("unchecked")
+	public T buscaPorAtributo(String atributo,String valor){
+		Query query = this.entityManager.createQuery("select c from " + this.classe.getName() + " c where c." + atributo + " =:valor");
+		query.setParameter("valor", valor);
+		return (T)query.getSingleResult();
+	}
+	
 	public void altera(T obj) {
 		this.entityManager.getTransaction().begin();
 		this.entityManager.merge(obj);

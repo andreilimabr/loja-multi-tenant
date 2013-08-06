@@ -1,33 +1,35 @@
 package br.com.andreilima.lojamultitenant.controle;
 
-import java.util.List;
-
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.subject.Subject;
+import javax.servlet.http.HttpServletRequest;
 
 import br.com.andreilima.lojamultitenant.dao.DAO;
 import br.com.andreilima.lojamultitenant.factory.EntityManagerCreator;
-import br.com.andreilima.lojamultitenant.model.Imagens;
+import br.com.andreilima.lojamultitenant.model.Templates;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Resource;
+import br.com.caelum.vraptor.Result;
 
 
 @Resource
 public class HomeController {
 	
 	private EntityManagerCreator em;
+	private HttpServletRequest request;
+	private Result result;
 	
-	public HomeController(EntityManagerCreator em) {
+	public HomeController(EntityManagerCreator em, HttpServletRequest request, Result result) {
 		// TODO Auto-generated constructor stub
 		this.em = em;
+		this.request = request;
+		this.result = result;
 	}
 	
-	@Get("home")
-	public List<Imagens> home(){
-		Subject subject = SecurityUtils.getSubject();
-		System.out.println(subject.getPrincipal());
-		DAO<Imagens> dao = new DAO<Imagens>(em.getInstance(),Imagens.class);
-		return dao.getLista();
+	@Get("/*")
+	public void home(){
+		DAO<Templates> dao = new DAO<Templates>(em.getInstance(),Templates.class);
+		String addr = this.request.getRequestURI();
+		Templates templates = dao.buscaPorAtributo("rota", addr);
+		this.result.forwardTo(templates.getTemplate());
 	}
 			
 	

@@ -5,6 +5,7 @@
    <persistence-unit name="tenant1" >
       <provider>org.hibernate.ejb.HibernatePersistence</provider>
       <class>br.com.andreilima.lojamultitenant.model.Imagens</class>
+      <class>br.com.andreilima.lojamultitenant.model.Templates</class>
       <properties>
         <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
         <property name="hibernate.hbm2ddl.auto" value="update"/>
@@ -19,6 +20,7 @@
    <persistence-unit name="tenant2" >
       <provider>org.hibernate.ejb.HibernatePersistence</provider>
       <class>br.com.andreilima.lojamultitenant.model.Imagens</class>
+      <class>br.com.andreilima.lojamultitenant.model.Templates</class>
       <properties>
         <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
         <property name="hibernate.hbm2ddl.auto" value="update"/>
