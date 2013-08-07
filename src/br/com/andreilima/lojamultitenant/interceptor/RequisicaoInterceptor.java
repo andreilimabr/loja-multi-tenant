@@ -45,5 +45,4 @@ public class RequisicaoInterceptor implements Interceptor {
 		this.tenant.setNome(tenantName);
 	}
 	
-
 }

@@ -1,8 +1,12 @@
 package br.com.andreilima.lojamultitenant.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Templates {
@@ -10,7 +14,10 @@ public class Templates {
 	@Id
 	private int id;
 	private String rota;
-	private String template;
+	private String nome;
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="template")
+	private List<TemplateItem> itens;
+	
 	public int getId() {
 		return id;
 	}
@@ -23,11 +30,25 @@ public class Templates {
 	public void setRota(String rota) {
 		this.rota = rota;
 	}
-	public String getTemplate() {
-		return template;
+	public String getNome() {
+		return nome;
 	}
-	public void setTemplate(String template) {
-		this.template = template;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
-	
+	public List<TemplateItem> getItens() {
+		return itens;
+	}
+	public void setItens(List<TemplateItem> itens) {
+		this.itens = itens;
+	}
+
+	public TemplateItem getItemByName(String name){
+		for (TemplateItem item : this.itens) {
+			if (item.getNome().equals(name)){
+				return item;
+			}		
+		}
+		return null;
+	}
 }
