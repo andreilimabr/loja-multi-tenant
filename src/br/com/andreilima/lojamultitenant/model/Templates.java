@@ -43,12 +43,5 @@ public class Templates {
 		this.itens = itens;
 	}
 
-	public TemplateItem getItemByName(String name){
-		for (TemplateItem item : this.itens) {
-			if (item.getNome().equals(name)){
-				return item;
-			}		
-		}
-		return null;
-	}
+	
 }

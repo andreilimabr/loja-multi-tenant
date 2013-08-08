@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Home - Template</title>
+<title>Home2 - Template</title>
 
 <link rel="stylesheet" href="<c:url value='/resource/css/bootstrap.min.css'/>">
 </head>
@@ -13,7 +13,7 @@
 <script type="text/javascript" src="<c:url value='/resource/js/jquery-1.8.2.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resource/js/bootstrap.min.js'/>"></script>
 <div>
-${scarlet.conteudo}
+${salma.conteudo}
 </div>
 </body>
 </html>

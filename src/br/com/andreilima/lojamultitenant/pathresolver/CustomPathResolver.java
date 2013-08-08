@@ -2,7 +2,7 @@ package br.com.andreilima.lojamultitenant.pathresolver;
 
 import java.util.Map;
 
-import br.com.andreilima.lojamultitenant.model.Templates;
+import br.com.andreilima.lojamultitenant.model.TemplateItem;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.http.FormatResolver;
 import br.com.caelum.vraptor.ioc.Component;
@@ -27,8 +27,8 @@ public class CustomPathResolver extends DefaultPathResolver {
 		// TODO Auto-generated method stub
 		
 		Map<String, Object> included = this.result.included();
-		Templates template = (Templates)included.get("templates");
-		String path =  "/WEB-INF/templates/" + template.getNome() + "." + getExtension();
+		TemplateItem templateItem = (TemplateItem)included.values().toArray()[0];
+		String path =  "/WEB-INF/templates/" + templateItem.getTemplate().getNome() + "." + getExtension();
 		return path;
 	}
 }

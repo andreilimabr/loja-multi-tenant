@@ -6,6 +6,7 @@
       <provider>org.hibernate.ejb.HibernatePersistence</provider>
       <class>br.com.andreilima.lojamultitenant.model.Imagens</class>
       <class>br.com.andreilima.lojamultitenant.model.Templates</class>
+      <class>br.com.andreilima.lojamultitenant.model.TemplateItem</class>
       <properties>
         <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
         <property name="hibernate.hbm2ddl.auto" value="update"/>
@@ -21,6 +22,7 @@
       <provider>org.hibernate.ejb.HibernatePersistence</provider>
       <class>br.com.andreilima.lojamultitenant.model.Imagens</class>
       <class>br.com.andreilima.lojamultitenant.model.Templates</class>
+      <class>br.com.andreilima.lojamultitenant.model.TemplateItem</class>
       <properties>
         <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
         <property name="hibernate.hbm2ddl.auto" value="update"/>
@@ -28,6 +30,22 @@
         <property name="hibernate.format_sql" value="true"/>
         <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
 		<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/tenant2" />
+		<property name="javax.persistence.jdbc.user" value="root" />
+		<property name="javax.persistence.jdbc.password" value="root" />
+      </properties>
+   </persistence-unit>
+   <persistence-unit name="tenant3" >
+      <provider>org.hibernate.ejb.HibernatePersistence</provider>
+      <class>br.com.andreilima.lojamultitenant.model.Imagens</class>
+      <class>br.com.andreilima.lojamultitenant.model.Templates</class>
+      <class>br.com.andreilima.lojamultitenant.model.TemplateItem</class>
+      <properties>
+        <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+        <property name="hibernate.hbm2ddl.auto" value="update"/>
+        <property name="hibernate.show_sql" value="true"/>
+        <property name="hibernate.format_sql" value="true"/>
+        <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+		<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/tenant3" />
 		<property name="javax.persistence.jdbc.user" value="root" />
 		<property name="javax.persistence.jdbc.password" value="root" />
       </properties>
