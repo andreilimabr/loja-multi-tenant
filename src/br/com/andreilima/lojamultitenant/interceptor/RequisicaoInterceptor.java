@@ -1,5 +1,8 @@
 package br.com.andreilima.lojamultitenant.interceptor;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import javax.servlet.http.HttpServletRequest;
 
 import br.com.andreilima.lojamultitenant.util.Tenant;
@@ -40,9 +43,15 @@ public class RequisicaoInterceptor implements Interceptor {
 	
 	public void resolveTenantName(HttpServletRequest request) {
 		// TODO Auto-generated method stub
-		String serverName = request.getServerName();
-		String tenantName = serverName.substring(0, serverName.indexOf("."));
-		this.tenant.setNome(tenantName);
+		try {
+			URL url = new URL(request.getRequestURL().toString());
+			String serverName = url.getHost();
+			int ponto = serverName.indexOf(".")+1;
+			String tenantName = serverName.substring(ponto,serverName.indexOf(".", ponto));
+			this.tenant.setNome(tenantName);
+		} catch (MalformedURLException e){
+			e.printStackTrace();
+		}
 	}
 	
 }
