@@ -12,7 +12,7 @@
 <body>
 <script type="text/javascript" src="<c:url value='/resource/js/jquery-1.8.2.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resource/js/bootstrap.min.js'/>"></script>
-<h4>Você está logado como <shiro:principal/>. (<a href="<c:url value='/admin/logout'/>" >logout</a> | <a href="<c:url value='/home'/>" >home</a>)</h4>
+<h5>Você está logado como <shiro:principal/>. (<a href="<c:url value='/admin/logout'/>" >logout</a> | <a href="<c:url value='/home'/>" >home</a>)</h5>
 <H2> Painel administrativo do Cliente</H2>
 </body>
 </html>

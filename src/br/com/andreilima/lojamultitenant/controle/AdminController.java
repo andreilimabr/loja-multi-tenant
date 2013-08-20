@@ -18,7 +18,7 @@ public class AdminController {
 	
 	@Path("/admin/painel")
 	public void painel(){
-		System.out.println("passou por aqui");
+		
 	}
 	
 	@Path("/admin/login")
