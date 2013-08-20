@@ -29,12 +29,17 @@ public class AdminController {
 	@Path("/admin/logout")
 	public void logout(){
 		SecurityUtils.getSubject().logout();
-		this.result.forwardTo(HomeController.class).root();
+		this.result.forwardTo(this).login();
 		
 	}
 	
 	@Path("/admin/unauthorized")
 	public void unauthorized() {
 		System.out.println("Acesso nao autorizado");
+	}
+	
+	@Path("/admin/templates")
+	public void templates() {
+		
 	}
 }

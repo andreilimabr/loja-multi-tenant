@@ -17,6 +17,7 @@
   <label for="password">Password</label><input name="password" id="password" type="password" /><br/>
   <button class="btn" type="submit" name="Login">   Login  </button>
 </form>
+<p><a href="<c:url value="/home" />">home</a></p>
 </div>
 </body>
 </html>

@@ -28,7 +28,7 @@ public class HomeController {
 	}
 	
 	
-	@Get("/home/*")
+	@Get("/home*")
 	public void root(){
 		DAO<Templates> dao = new DAO<Templates>(em.getInstance(),Templates.class);
 		String path = req.getRequestURI();
