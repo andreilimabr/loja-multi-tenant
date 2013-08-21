@@ -18,22 +18,23 @@
 <link rel="stylesheet" href="<c:url value='/resource/css/bootstrap.min.css'/>">
 </head>
 <body>
-<div id="editor">function foo(items) {
-    var x = "All this is syntax highlighted";
-    return x;
-}</div>
+<div id="editor" style="width: 800px;height: 500px">
+
+	
+</div>
 <script type="text/javascript" src="<c:url value="/resource/js/jquery-1.8.2.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/resource/js/bootstrap.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/resource/js/ace/src-noconflict/ace.js"/>"></script>
 <script type="text/javascript">
-    var editor = ace.edit("editor");
-    //editor.require('ace/ext/language_tools');
+    var editor = ace.edit("editor");  
     editor.setTheme("ace/theme/monokai");
-    editor.getSession().setMode("ace/mode/javascript");
-    editor.setOptions({
-        enableBasicAutocompletion: true,
-        enableSnippets: true
-    });
+    editor.getSession().setMode("ace/mode/html");
+    ace.config.loadModule('ace/ext/language_tools', function() {
+        editor.setOptions({
+            enableBasicAutocompletion: true,
+            enableSnippets: true
+        })
+    }); 
 </script>
 </body>
 </html>
