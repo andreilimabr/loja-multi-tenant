@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="<c:url value='/resource/css/bootstrap.min.css'/>">
 </head>
 <body>
-<div id="editor" style="width: 800px;height: 500px">
+<div id="editor" style="width: 800px;height: 500px;position: relative;">
 
 	
 </div>
@@ -35,6 +35,17 @@
             enableSnippets: true
         })
     }); 
+    function salvaArquivo(){
+    	editor.selectAll();
+    	$("#arquivo").attr("value",editor.getCopyText());
+    	$("#frmSalvar").submit();
+    }
 </script>
+<div>
+	<form action="<c:url value="/admin/savetemplate" />" method="post" id="frmSalvar">
+	<input type="hidden" id="arquivo" name="arquivo"/>
+	<br><input type="button" class="btn" value="Salvar" onclick="salvaArquivo();">
+	</form>
+</div>
 </body>
 </html>
