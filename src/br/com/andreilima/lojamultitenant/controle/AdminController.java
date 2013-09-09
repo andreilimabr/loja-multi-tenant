@@ -5,6 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.shiro.SecurityUtils;
 
 import br.com.caelum.vraptor.Path;
@@ -15,10 +19,12 @@ import br.com.caelum.vraptor.Result;
 public class AdminController {
 	
 	private Result result;
+	private ServletContext context;
 	
-	public AdminController(Result result) {
+	public AdminController(Result result, ServletContext context) {
 		// TODO Auto-generated constructor stub
 		this.result = result;
+		this.context = context;
 	}
 	
 	@Path("/admin/painel")
@@ -51,13 +57,16 @@ public class AdminController {
 	@Path("/admin/savetemplate")
 	public void savetemplate(String arquivo) {
 		// salva o arquivo
-		
-		try {		
-		    File file = new File("/Users/aclima/workspace/loja-multi-tenant/WebContent/WEB-INF/templates/teste.jsp");
+	   String path = this.context.getRealPath("/WEB-INF/templates");
+		try {	
+			// teste de merge
+			// esta linha foi colocada propositalmente 
+		    File file = new File(path +"/teste2.jsp");
 			FileOutputStream os = new FileOutputStream(file);
 			os.write(arquivo.getBytes());
 			os.flush();
 			os.close();
+			System.out.println(path);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
